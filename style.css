@@ -12,15 +12,21 @@ body {
     direction: rtl;
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
 /* Style to expense summary */
 .summary {
-    width: 25rem;
     display: flex;
     flex-direction: column;
     text-align: center;
     margin: auto;
     margin-bottom: 40px;
-    padding: 1%;
+    padding: 0 65px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 20px;
 }
@@ -141,5 +147,16 @@ button {
         border-radius: 20px;
         border-end-end-radius: 40px;
         border-end-start-radius: 40px;
+    }
+    #table {
+        width: 100%;
+    }
+    .total {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+    .total>div {
+        width: 100px;
     }
 }
