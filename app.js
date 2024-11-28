@@ -1,13 +1,22 @@
-async function getData() {
-    const response = await fetch('/api/user');  // Fetch data from the local server
-    const data = await response.json();
-    document.getElementById('output').innerText = data.message;
+async function loadJSON() {
+    try {
+        const response = await fetch('user.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const users = await response.json();
+        console.log(users.map(user => user.name));
+        users.map(user => user.name)
+        localStorage.setItem('users', JSON.stringify(users))
+    } catch (error) {
+        console.error('Error loading JSON:', error);
+    }
 }
 
+loadJSON();
 
-let tableEntries = [
-    
-];
+
+let tableEntries = [];
 
 function updateSummary() {
     const totalIncome = tableEntries.reduce((total, el) => {
@@ -113,6 +122,11 @@ function loadFromLocalStorage() {
         updateTable();
     }
 }
+
+function loadUserToLocalStorage() {
+    localStorage.setItem('users', JSON.stringify())
+}
+
 
 loadFromLocalStorage();
 updateTable();
