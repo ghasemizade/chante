@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>چنته</title>
 </head>
 <body>
     <header class="header">
-        <h1>چنته | مدیریت درآمد و هزینه ها</h1>
+        <h1 id="text">چنته 👋 مدیریت درآمد و هزینه ها</h1>
     </header>
     <main class="main">
         <div class="summary">
             <div>
-                <h1>&#10004; Balance:
+                <h2>&#10004; تتمه حساب
                     <span id="updatedBal">
                           7000
                       </span>
-                </h1>
+                </h2>
             </div>
             <br />
             <div class="total">
                 <div>
-                    Total Income:
+                    درآمد
                     <div>
                         <h2 style="color: green;"
                             id="updatedInc">
@@ -32,7 +33,7 @@
                 </div>
                 <hr class="verticle" />
                 <div>
-                    Total Expenses:
+                    خرجی ها
                     <div>
                         <h2 style="color: red;" 
                             id="updatedExp">
@@ -44,53 +45,54 @@
         </div>
         <div class="root">
             <div id="new">
-                <h2>Add new</h2>
+                <h3>اضافه کردن خرجی ها و درآمد</h3>
     
                 <div class="inputs">
                     <div class="inputitem">
                         <p style="width: 9rem">
-                            Entry type:
+                            خرجی یا درآمد
                         </p>
                         <select id='itemType'>
-                            <option value="0">Expense</option>
-                            <option value="1">Income</option>
+                            <option value="0">خرجی</option>
+                            <option value="1">درآمد</option>
                         </select>
                     </div>
                     <div class="inputitem">
-                        <p style="width: 9rem">Name:</p>
+                        <p style="width: 9rem">عنوان</p>
                         <input id="name" 
                                type="text"
                                value="" 
-                               placeholder="name" />
+                               placeholder="عنوان" />
                     </div>
                     <div class="inputitem">
-                        <p style="width: 9rem">Amount:</p>
-                        <input value="0" 
+                        <p style="width: 9rem">مقدار</p>
+                        <input value="" 
                                id="amount"
                                name="mod" 
                                type="number" 
-                               placeholder="amount" />
+                               placeholder="مقدار" />
                     </div>
                 </div>
                 <button onclick="addItem()">
-                    Add Expense
+                    اضافه کردن هزینه
                 </button>
             </div>
-            <hr class="vertical" />
             <div id="items">
-                <h2>Expenses</h2>
+                <h2>هزینه ها</h2>
                 <table id="table">
                     <tr class="titles">
-                        <th>S.no.</th>
-                        <th>Name</th>
-                        <th>Amount</th>
-                        <th>Type</th>
-                        <th>Delete</th>
+                        <th>ردیف</th>
+                        <th>عنوان</th>
+                        <th>مقدار</th>
+                        <th>نوع</th>
+                        <th>حذف</th>
                     </tr>
                 </table>
             </div>
         </div>
     </main>
     <footer class="footer"></footer>
+
+    <script src="./app.js"></script>
 </body>
 </html>

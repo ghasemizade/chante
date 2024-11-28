@@ -9,6 +9,7 @@ body {
     text-align: center;
     align-items: center;
     font-family: DanaR;
+    direction: rtl;
 }
 
 /* Style to expense summary */
@@ -40,38 +41,39 @@ body {
     background-color: white;
     display: flex;
     margin: auto;
-    padding: 2%;
-    padding-top: 1%;
     justify-content: center;
     text-align: center;
     border-width: 6px;
     border: 6px grey;
     box-sizing: content-box;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
     min-height: 30vh;
     gap: 30px;
+    border-radius: 20px;
 }
 
-
-/* Style for the verticle bar*/
-.vertical {
-    color: rgb(35, 35, 106);
-    margin: 0 2%;
-    border-width: 2px;
+.root #new{
+    border-radius: 20px;
+    border-end-end-radius: 40px;
+    border-start-end-radius: 40px;
+    background-color: #ECFCF0;
+    padding: 2%;
 }
 
 /* Style for table*/
 #table {
-    border-collapse: collapse;
     width: 50vw;
-    border: 1px solid #ddd;
     font-size: 18px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Table */
 #table th,
 #table td {
-    text-align: left;
+    text-align: center;
     padding: 12px;
 }
 
@@ -82,7 +84,8 @@ body {
 
 /* Headings*/
 #table tr.titles {
-    background-color: lightgreen;
+    background-color: #0C3B2E;
+    color: #fff;
 }
 
 /* Style for each input item */
@@ -100,28 +103,33 @@ option {
     padding: 2%;
     border-radius: 5px;
     margin: 2%;
+    font-family: DanaR;
 }
 
 button {
     font-size: large;
     border-radius: 5px;
     padding: 1%;
+    font-family: DanaR;
 }
 
 .zoom {
-    color: black;
+    color: rgb(102, 102, 102);
     transition: transform .2s;
-
 }
 
 .zoom:hover {
-    transform: scale(1.23);
-
-    color: green;
+    color: tomato;
 }
 
 @media screen and (max-width: 768px) {
     .root{
         flex-direction: column;
+        
+    }
+    .root #new{
+        border-radius: 20px;
+        border-end-end-radius: 40px;
+        border-end-start-radius: 40px;
     }
 }
