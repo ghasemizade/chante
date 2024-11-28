@@ -1,9 +1,4 @@
-let tableEntries = [
-    { type: 1, name: "درآمد", amount: 25000 },
-    { type: 0, name: "اجاره", amount: 10000 },
-    { type: 0, name: "خوراکی", amount: 4000 },
-    { type: 0, name: "پوشاک", amount: 6000 },
-];
+let tableEntries = [];
 
 function updateSummary() {
     const totalIncome = tableEntries.reduce((total, el) => {
@@ -37,11 +32,12 @@ function addItem() {
         type: Number(type),
         name: name.value,
         amount: Number(amount.value),
-    });    
-
+        date: new Date().toLocaleDateString(),
+    });
     updateTable();
     name.value = "";
     amount.value = 0;
+    saveToLocalStorage(tableEntries);
 }
 
 function loadItems(e, i) {
@@ -54,12 +50,14 @@ function loadItems(e, i) {
     let cell_2 = row.insertCell(2);
     let cell_3 = row.insertCell(3);
     let cell_4 = row.insertCell(4);
+    let cell_5 = row.insertCell(5);
     cell_0.innerHTML = i + 1;
     cell_1.innerHTML = e.name;
     cell_2.innerHTML = e.amount;
     cell_4.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
     cell_4.classList.add("zoom");
     cell_4.addEventListener("click", () => del(e));
+    cell_5.innerHTML = new Date().toLocaleDateString();
     if (e.type == 0) {
         cls = "red";
         cell_3.innerHTML = `<i class="fa-solid fa-arrow-down"></i>`;
@@ -68,6 +66,8 @@ function loadItems(e, i) {
         cell_3.innerHTML = `<i class="fa-solid fa-arrow-up"></i>`;
     }
     cell_3.style.color = cls;
+
+    // loadFromLocalStorage(tableEntries);
 }
 
 
@@ -76,14 +76,16 @@ function remove() {
 }
 
 function del(el) {
-    remove();
-    tableEntries = tableEntries.filter(
-        (e) => e.name !== el.name
-    );
-    tableEntries.map((e, i) => loadItems(e, i));
+    if (confirm(`Are you sure you want to delete ${el.name}?`)) {
+        remove();
+        tableEntries = tableEntries.filter(
+            (e) => e.name !== el.name
+        );
+        
+    }
+    localStorage.setItem('tableEntries', JSON.stringify(tableEntries));
     updateSummary();
 }
-
 function updateTable() {
     remove();
     tableEntries.map((e, i) => {
@@ -92,4 +94,17 @@ function updateTable() {
     updateSummary();
 }
 
+function saveToLocalStorage(data) {
+    localStorage.setItem('tableEntries', JSON.stringify(data));
+}
+
+function loadFromLocalStorage() {
+    const storedData = JSON.parse(localStorage.getItem('tableEntries'));
+    if (storedData) {
+        tableEntries = storedData;
+        updateTable();
+    }
+}
+
+loadFromLocalStorage();
 updateTable();
