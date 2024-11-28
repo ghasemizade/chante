@@ -1,0 +1,19 @@
+[
+    {
+      "name": "Hosein",
+      "email": "ghasemizade.hosein@gmail.com",
+      "password": "a123456"
+    },
+    {
+      "user_id": "583c5484cb79a5fe593425a9",
+      "name": "Mohammad",
+      "email": "abbasi.mohammad@gmail.com",
+      "password": "b123456"
+    },
+    {
+      "user_id": "583c57672c7686377d2f66c9",
+      "name": "Amir",
+      "email": "mohajeri.amir@gmail.com",
+      "password": "c123456"
+    }
+  ]
