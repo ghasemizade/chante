@@ -163,3 +163,27 @@ button {
         width: 100px;
     }
 }
+
+
+/* login form */
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.container .login-form .name input,
+.container .login-form .email input,
+.container .login-form .password input{
+    width: 90%;
+}
+.login {
+    padding: 5px 30px;
+}
