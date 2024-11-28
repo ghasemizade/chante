@@ -15,6 +15,10 @@ async function loadJSON() {
 
 loadJSON();
 
+const username = document.querySelector('.username');
+const getUserInfo = JSON.parse(localStorage.getItem("userInfo"))
+username.innerHTML = getUserInfo[0].name
+
 
 let tableEntries = [];
 
