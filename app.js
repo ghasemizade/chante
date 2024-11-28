@@ -1,7 +1,8 @@
 let tableEntries = [
-    { type: 1, name: "income", amount: 25000 },
-    { type: 0, name: "rent", amount: 18000 },
-    { type: 0, name: "food", amount: 5000 },
+    { type: 1, name: "درآمد", amount: 25000 },
+    { type: 0, name: "اجاره", amount: 10000 },
+    { type: 0, name: "خوراکی", amount: 4000 },
+    { type: 0, name: "پوشاک", amount: 6000 },
 ];
 
 function updateSummary() {

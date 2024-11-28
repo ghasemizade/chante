@@ -22,6 +22,7 @@ body {
     margin-bottom: 40px;
     padding: 1%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
 }
 
 
@@ -58,6 +59,8 @@ body {
     border-start-end-radius: 40px;
     background-color: #ECFCF0;
     padding: 2%;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Style for table*/
@@ -100,17 +103,24 @@ body {
 input,
 select,
 option {
-    padding: 2%;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 20px;
     margin: 2%;
     font-family: DanaR;
+    border: none;
+    outline-color: goldenrod;
 }
 
 button {
     font-size: large;
-    border-radius: 5px;
-    padding: 1%;
+    padding: 2%;
     font-family: DanaR;
+    border: none;
+    background-color: rgba(0, 128, 0, 0.596);
+    color: #fff;
+    border-radius: 15px;
+    margin-top: 20px;
+
 }
 
 .zoom {
