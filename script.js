@@ -1,3 +1,10 @@
+async function getData() {
+    const response = await fetch('/api/user');  // Fetch data from the local server
+    const data = await response.json();
+    document.getElementById('output').innerText = data.message;
+}
+
+
 let tableEntries = [
     
 ];
