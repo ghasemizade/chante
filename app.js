@@ -1,4 +1,6 @@
-let tableEntries = [];
+let tableEntries = [
+    
+];
 
 function updateSummary() {
     const totalIncome = tableEntries.reduce((total, el) => {
@@ -66,8 +68,6 @@ function loadItems(e, i) {
         cell_3.innerHTML = `<i class="fa-solid fa-arrow-up"></i>`;
     }
     cell_3.style.color = cls;
-
-    // loadFromLocalStorage(tableEntries);
 }
 
 
@@ -84,6 +84,7 @@ function del(el) {
         
     }
     localStorage.setItem('tableEntries', JSON.stringify(tableEntries));
+    tableEntries.map((e, i) => loadItems(e, i));
     updateSummary();
 }
 function updateTable() {
