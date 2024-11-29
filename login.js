@@ -15,7 +15,7 @@ getBtn.addEventListener('click', (ev) => {
     nameCheck(getNameInput, getEmailInput, getPasswordInput);
 })
 
-const users = JSON.parse(localStorage.getItem('users'))
+const users = JSON.parse(localStorage.getItem("users"))
 console.log(users);
  
 
@@ -33,13 +33,14 @@ function nameCheck (name, email, password) {
     let emailExistDB = users.map(user => user.email)
     let checkNameIfExist = nameExistDB.includes(nameToLowerCase);
     let checkEmailIfExist = emailExistDB.includes(email.value);
+    let filteredUser = users.filter(user => user.name === nameToLowerCase)
     
     
     
     if (checkNameIfExist && checkEmailIfExist) {
-        let filteredUser = users.filter(user => user.name === nameToLowerCase)
         if (filteredUser[0].email === email.value && filteredUser[0].password === password.value) {
-            localStorage.setItem('userInfo', JSON.stringify(filteredUser))
+            localStorage.setItem('userInfo', JSON.stringify(filteredUser));
+            mainUser();
             redirect();
         } else {
             alert('اطلاعات ورودی نادرست میباشد!');
@@ -48,9 +49,10 @@ function nameCheck (name, email, password) {
             password.value = ''
         }
     } else if (!checkNameIfExist && !checkEmailIfExist) {
-        usersInfo = JSON.parse(localStorage.getItem("users"))
+        usersInfo = JSON.parse(localStorage.getItem("users"));
         addUser();
-        localStorage.setItem("users", JSON.stringify(usersInfo))
+        localStorage.setItem("newUsers", JSON.stringify(usersInfo));
+        mainUser();
         redirect();
     } else {
         alert('اطلاعات ورودی همخوانی ندارند!');
@@ -70,8 +72,13 @@ function addUser() {
     })
 }
 
+function mainUser() {
+    const main_user = usersInfo.filter(user => user.name === getNameInput.value);
+    localStorage.setItem("mainUser", JSON.stringify(main_user))
+}
+
 function redirect() {
-    location.replace('' + '/')
+    location.replace('/')
 }
 
 // console.log(users.filter(user => user.name === 'hosein'));
