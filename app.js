@@ -74,7 +74,7 @@ function remove() {
 }
 
 function del(el) {
-    if (confirm(`Are you sure you want to delete ${el.name}?`)) {
+    if (confirm(`آیا میخوای ${el.name} را حذف کنی ؟`)) {
         remove();
         tableEntries = tableEntries.filter(
             (e) => e.name !== el.name
