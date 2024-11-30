@@ -14,6 +14,8 @@ function updateSummary() {
     updatedInc.innerText = totalIncome;
     updatedExp.innerText = totalExpense;
     updatedBal.innerText = totalIncome - totalExpense;
+
+    calculateAnnualSavings(totalIncome);
 }
 
 function addItem() {
@@ -109,6 +111,16 @@ function loadUserToLocalStorage() {
     localStorage.setItem('users', JSON.stringify())
 }
 
+function calculateAnnualSavings(totalIncome) {
+    const annualIncome = totalIncome * 12;
+    const savings10 = annualIncome * 0.1;
+    const savings20 = annualIncome * 0.2;
+    const savings30 = annualIncome * 0.3;
+
+    document.getElementById("savings10").innerText = savings10.toLocaleString();
+    document.getElementById("savings20").innerText = savings20.toLocaleString();
+    document.getElementById("savings30").innerText = savings30.toLocaleString();
+}
 
 loadFromLocalStorage();
 updateTable();

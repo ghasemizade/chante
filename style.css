@@ -69,6 +69,12 @@ body {
     flex-direction: column;
 }
 
+.savings fieldset {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
 /* Style for table*/
 #table {
     width: 50vw;
@@ -164,26 +170,3 @@ button {
     }
 }
 
-
-/* login form */
-.container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.login-form {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    flex-direction: column;
-}
-
-.container .login-form .name input,
-.container .login-form .email input,
-.container .login-form .password input{
-    width: 90%;
-}
-.login {
-    padding: 5px 30px;
-}
