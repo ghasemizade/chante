@@ -1,19 +1,21 @@
-async function loadJSON() {
-    try {
-        const response = await fetch('user.json');
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const users = await response.json();
-        console.log(users.map(user => user.name));
-        users.map(user => user.name)
-        localStorage.setItem('users', JSON.stringify(users))
-    } catch (error) {
-        console.error('Error loading JSON:', error);
-    }
-}
+// async function loadJSON() {
+//     try {
+//         const response = await fetch('user.json');
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+//         const users = await response.json();
+//         console.log(users.map(user => user.name));
+//         users.map(user => user.name)
+//         localStorage.setItem('users', JSON.stringify(users))
+//     } catch (error) {
+//         console.error('Error loading JSON:', error);
+//     }
+// }
 
-loadJSON();
+// loadJSON();
+
+
 
 const username = document.querySelector('.username');
 const getUserInfo = JSON.parse(localStorage.getItem("mainUser"))

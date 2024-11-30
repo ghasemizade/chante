@@ -15,8 +15,28 @@ getBtn.addEventListener('click', (ev) => {
     nameCheck(getNameInput, getEmailInput, getPasswordInput);
 })
 
-const users = JSON.parse(localStorage.getItem("users"))
-console.log(users);
+const users = [
+    {
+        "user_id": "1",
+        "name": "hosein",
+        "email": "ghasemizade.hosein@gmail.com",
+        "password": "a123456"
+      },
+      {
+        "user_id": "2",
+        "name": "mohammad",
+        "email": "abbasi.mohammad@gmail.com",
+        "password": "b123456"
+      },
+      {
+        "user_id": "3",
+        "name": "amir",
+        "email": "mohajeri.amir@gmail.com",
+        "password": "c123456"
+      }
+]
+
+// localStorage.setItem("users", JSON.stringify(users))
  
 
 function nameCheck (name, email, password) {
@@ -39,7 +59,6 @@ function nameCheck (name, email, password) {
     
     if (checkNameIfExist && checkEmailIfExist) {
         if (filteredUser[0].email === email.value && filteredUser[0].password === password.value) {
-            localStorage.setItem('userInfo', JSON.stringify(filteredUser));
             mainUser();
             redirect();
         } else {
@@ -73,7 +92,7 @@ function addUser() {
 }
 
 function mainUser() {
-    const main_user = usersInfo.filter(user => user.name === getNameInput.value);
+    const main_user = users.filter(user => user.name === getNameInput.value);
     localStorage.setItem("mainUser", JSON.stringify(main_user))
 }
 
