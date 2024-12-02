@@ -83,6 +83,8 @@ function del(el) {
         );
         
     }
+    remove();
+
     localStorage.setItem('tableEntries', JSON.stringify(tableEntries));
     tableEntries.map((e, i) => loadItems(e, i));
     updateSummary();
